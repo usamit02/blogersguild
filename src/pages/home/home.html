@@ -11,4 +11,34 @@
   <p>
     If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
   </p>
+  <div class="pure-g">
+    <!-- Video area -->
+    <div class="pure-u-2-3" id="video-container">
+      <video id="their-video" autoplay></video>
+      <video id="my-video" muted="true" autoplay></video>
+    </div>
+    <!-- Steps -->
+    <div class="pure-u-1-3">
+      <h2>SkyWay Video Chat</h2>
+
+      <p>Your id: <span id="my-id">...</span></p>
+      <p>Share this id with others so they can call you.</p>
+      <h3>Make a call</h3>
+      <form #form="ngForm" (ngSubmit)="clickCall(form.value)" id="make-call" class="pure-form">
+        <!--<input type="text" placeholder="Call user id..." id="callto-id">-->
+        <ion-input type="text" [(ngModel)]="myid" id="myid" name="myid"></ion-input>
+        <ion-input type="text" [(ngModel)]="userid" placeholder="Call user id..." id="calltoid" name="calltoid"></ion-input>
+        <!-- <button href="#" class="pure-button pure-button-success" type="submit">Call</button>
+        <button ion-button block round color="danger" (click)="reset()">リセット</button>-->
+        <!--<button ion-button class="pure-button pure-button-success" (click)="clickCall()">Call</button>-->
+        <button ion-button type="submit">Call</button>
+      </form>
+      <form id="end-call" class="pure-form">
+        <p>Currently in call with <span id="their-id">...</span></p>
+        <!--<button href="#" class="pure-button pure-button-success" type="submit">End Call</button>-->
+        <button ion-button block round color="danger" (click)="clickEnd()" class="pure-button pure-button-success">End
+          Call</button>
+      </form>
+    </div>
+  </div>
 </ion-content>
