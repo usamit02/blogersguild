@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { RoomPage } from '../pages/room/room';
 import { SigninPage } from '../pages/signin/signin';
+import { AddRoomPage } from '../pages/add-room/add-room';
 //import { SigninPageModule } from '../pages/signin/signin.module';
 
 import { AngularFireModule } from 'angularfire2';
@@ -28,7 +29,8 @@ export const firebaseConfig = {
     MyApp,
     HomePage,
     RoomPage,
-    SigninPage
+    SigninPage,
+    AddRoomPage
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ export const firebaseConfig = {
     MyApp,
     HomePage,
     RoomPage,
-    SigninPage
+    SigninPage,
+    AddRoomPage
   ],
   providers: [
     StatusBar,

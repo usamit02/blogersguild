@@ -23,6 +23,9 @@ export class SigninPage {
   login() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.TwitterAuthProvider());
   }
+  login2() {
+    this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+  }
   logout() {
     this.afAuth.auth.signOut();
   }

@@ -1,0 +1,45 @@
+<!--
+  Generated template for the ChatPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>chat</ion-title>
+    <ion-buttons slot="end">
+      <button ion-button icon-only (click)="exitChat()">
+        <ion-icon name="exit"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list class="chat-list">
+    <ion-item *ngFor="let chat of chats">
+      <div class="chat-message" text-left>
+        <div class="right-bubble">
+          <span class="msg-name">{{chat.user}}</span>
+          <span class="msg-date">{{chat.sendDate | date:'short'}}</span>
+          <p text-wrap>{{chat.message}}</p>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-input type="text" placeholder="Type a message" [(ngModel)]="chatMessage" name="message"></ion-input>
+    <ion-buttons slot="end">
+      <button ion-button slot="end" color="primary" (click)="sendChatMessage()">
+        Send
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

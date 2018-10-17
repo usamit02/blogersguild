@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SigninPage } from '../signin/signin';
+import { AddRoomPage } from '../add-room/add-room';
+import { } from '../signin/signin';
 import * as firebase from 'firebase';
 
 @IonicPage()
@@ -9,7 +11,7 @@ import * as firebase from 'firebase';
   templateUrl: 'room.html',
 })
 export class RoomPage {
-
+  rooms = [];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -19,6 +21,16 @@ export class RoomPage {
   ngOnInit() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
+        firebase.database().ref('chatrooms/').on('value', resp => {
+          if (resp) {
+            this.rooms = [];
+            resp.forEach(childSnapshot => {
+              const room = childSnapshot.val();
+              room.key = childSnapshot.key;
+              this.rooms.push(room);
+            });
+          }
+        });
       } else {
         this.navCtrl.push(SigninPage);
       }
@@ -30,5 +42,11 @@ export class RoomPage {
       this.navCtrl.push(SigninPage);
 
     } catch (error) { }
+  }
+  addRoom() {
+    this.navCtrl.push(AddRoomPage);
+  }
+  joinRoom(rid) {
+    this.navCtrl.push('ChatPage', { id: rid });
   }
 }

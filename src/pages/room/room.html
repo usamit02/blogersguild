@@ -18,9 +18,15 @@
     <ion-buttons slot="start">
     </ion-buttons>
     <ion-title>room</ion-title>
-    <ion-label (click)="signOut()">
-      Sign Out
-    </ion-label>
+    <ion-buttons slot="end">
+
+      <button ion-button icon-only (click)="addRoom()">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="signOut()">
+        <ion-icon name="bookmark"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
