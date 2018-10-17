@@ -32,7 +32,7 @@ export class HomePage {
       debug: 3
     });
     this.peer.on('open', () => {
-      $('#my-id').text(this.peer.id);//this.peer.connections.id);
+      $('#my-id').text(this.peer.id);
       this.myid = this.peer.id;
     });
     this.peer.on('error', err => {
@@ -49,10 +49,6 @@ export class HomePage {
   }
 
   clickCall(formValue) {
-    //e.preventDefault();
-    //let a = <HTMLInputElement>document.getElementById('callto-id');
-    //let b = a.value;
-    //$("#confid").text(b);
     let call = this.peer.call(formValue.calltoid, this.localStream);
     this.setupCallEventHandlers(call);
   };
@@ -73,19 +69,14 @@ export class HomePage {
       this.setupMakeCallUI();
     });
     this.existingCall = call;
-    // 省略
   }
   addVideo(call, stream) {
     let video = <HTMLVideoElement>document.getElementById('their-video');
     video.srcObject = stream;
-    //$('#their-video').get(0).srcObject = stream;
-    //this.theirVideo.srcObject = stream;
   }
   removeVideo(peerId) {
     let video = <HTMLVideoElement>document.getElementById('their-video');
     video.srcObject = undefined;
-    //$('#their-video').get(0).srcObject = undefined;
-    //this.theirVideo.srcObject = undefined;
   }
   setupMakeCallUI() {
     $('#make-call').show();
