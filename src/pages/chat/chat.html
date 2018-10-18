@@ -30,13 +30,22 @@
       </div>
     </ion-item>
   </ion-list>
+  <ion-list class="user-list">
+    <ion-item *ngFor="let user of users">
+      <div class="chat-user" text-left>
+        <div class="right-bubble">
+          <span class="user-name">{{user.displayName}}</span>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
 </ion-content>
 
 <ion-footer>
   <ion-toolbar>
-    <ion-input type="text" placeholder="Type a message" [(ngModel)]="chatMessage" name="message"></ion-input>
+    <ion-input type="text" placeholder="Type a message" [(ngModel)]="message" name="message"></ion-input>
     <ion-buttons slot="end">
-      <button ion-button slot="end" color="primary" (click)="sendChatMessage()">
+      <button ion-button slot="end" color="primary" (click)="sendMessage()">
         Send
         <ion-icon name="send"></ion-icon>
       </button>
